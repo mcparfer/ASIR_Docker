@@ -1,0 +1,80 @@
+version: '5'
+services:
+  sitea-sw:
+    build: siteA
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    tty: true
+    stdin_open: true
+    tmpfs: /run
+    entrypoint: ./entrypoint.sh
+    networks:
+      siteA:
+        ipv4_address: 10.9.141.10
+      internet:
+        ipv4_address: 172.16.0.10
+  siteb-sw:
+    build: siteB
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    tty: true
+    tmpfs: /run
+    stdin_open: true
+    entrypoint: ./entrypoint.sh
+    networks:
+      siteB:
+        ipv4_address: 10.10.27.10
+      internet:
+        ipv4_address: 172.16.0.20
+        
+  httpb:
+    build: http
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - ./http/www:/var/www
+    tty: true
+    tmpfs: /run
+    stdin_open: true
+    entrypoint: ./entrypoint.sh
+    networks:
+      siteB:
+        ipv4_address: 10.10.27.100
+      
+  httpa:
+    build: http
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    volumes:
+      - ./http/www:/var/www
+    tty: true
+    tmpfs: /run
+    stdin_open: true
+    entrypoint: ./entrypoint.sh
+    networks:
+      siteA:
+        ipv4_address: 10.9.141.100
+
+
+networks:
+    siteA:
+      ipam:
+        driver: default
+        config:
+          - subnet: 10.9.141.0/24
+    siteB:
+      ipam:
+        driver: default
+        config:
+          - subnet: 10.10.27.0/24
+    internet:
+      ipam:
+        driver: default
+        config:
+          - subnet: 172.16.0.0/24
+
+#key SPSivRrwaZc=

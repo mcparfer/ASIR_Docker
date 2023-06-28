@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  web:
+    build: ./Web
+    expose: 
+        - "80"
+    env_file:
+        - ./Web/web.env
+    #command: "php -S 10.10.0.128:80"
+    hostname: web
+    tty: true
+    networks:
+      interna:
+        ipv4_address: "10.10.0.128"
+
+  ssh:
+    build: ./SSH
+    hostname: ssh
+    ports:
+        - 2222:22
+        - 8888:80
+    tty: true
+    networks:
+      interna:
+        ipv4_address: 10.10.0.10
+      host:
+        ipv4_address: 192.168.50.2
+        
+
+networks:
+    interna:
+      ipam:
+        driver: default
+        config:
+          - subnet: "10.10.0.0/24"
+    host:
+      ipam:
+        driver: default
+        config:
+          - subnet: "192.168.50.0/24"
+    
+        
+          

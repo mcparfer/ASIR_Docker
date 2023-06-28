@@ -1,0 +1,40 @@
+[09-11-22_11-45-23] - Comenzando copia diferencial...
+receiving incremental file list
+drwxrwxrwx            512 2022/11/07 08:56:48 .
+-rw-r--r--             52 2022/11/07 08:54:35 otrapruebamas.txt
+-rw-r--r--             14 2022/11/07 08:56:48 pruebanueva.txt
+
+sent 20 bytes  received 100 bytes  80.00 bytes/sec
+total size is 66  speedup is 0.55
+Fin copia diferencial
+[09-11-22_11-46-20] - Comenzando copia diferencial...
+receiving incremental file list
+drwxrwxrwx          4,096 2022/11/07 08:56:48 .
+-rw-r--r--             28 2022/11/07 09:03:03 pruebanueva.txt
+
+sent 20 bytes  received 74 bytes  62.67 bytes/sec
+total size is 28  speedup is 0.30
+receiving incremental file list
+drwxrwxrwx            512 2022/11/07 08:56:48 .
+-rw-r--r--             52 2022/11/07 08:54:35 otrapruebamas.txt
+-rw-r--r--             14 2022/11/07 08:56:48 pruebanueva.txt
+
+sent 20 bytes  received 100 bytes  240.00 bytes/sec
+total size is 66  speedup is 0.55
+Fin copia diferencial
+[09-11-22_11-47-49] - Comenzando copia diferencial...
+receiving incremental file list
+drwxrwxrwx          4,096 2022/11/07 08:56:48 .
+-rw-r--r--             28 2022/11/07 09:03:03 pruebanueva.txt
+
+sent 20 bytes  received 74 bytes  188.00 bytes/sec
+total size is 28  speedup is 0.30
+receiving incremental file list
+drwxrwxrwx            512 2022/11/07 08:56:48 .
+-rw-r--r--             52 2022/11/07 08:54:35 otrapruebamas.txt
+-rw-r--r--             14 2022/11/07 08:56:48 pruebanueva.txt
+
+sent 20 bytes  received 100 bytes  240.00 bytes/sec
+total size is 66  speedup is 0.55
+Fin copia diferencial
+

@@ -1,0 +1,16 @@
+version: "3.9" 
+
+services:        
+  debian:
+    build: .
+    volumes:
+      - ./debian:/practicas
+    cpu_count: 2
+    mem_limit: 2G
+    
+    domainname: local
+    hostname: debian.local
+    tty: true
+    
+    ports:
+    - "2222:22"
